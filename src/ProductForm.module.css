@@ -1,0 +1,19 @@
+.add_product_button {
+  background-color: rgb(65, 65, 212);
+  border: none;
+  color: white;
+  outline: none;
+  border-radius: 8px;
+  padding: 10px;
+
+  margin: 20px;
+
+  transition: all 0.5;
+}
+.add_product_button:hover {
+  opacity: 0.7;
+}
+
+button:focus {
+  outline: 0 !important;
+}

@@ -1,0 +1,47 @@
+.product_card {
+  width: 200px;
+  height: 130px;
+
+  margin: 10px;
+  border: solid;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  position: relative;
+}
+
+#delete_product_button {
+  background-color: red;
+  color: white;
+
+  height: 26px;
+  width: 25px;
+
+  margin-top: 5px;
+  margin-right: 5px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product_card span {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.add_remove_button_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.add_remove_button_wrapper button {
+  width: 60px;
+}
