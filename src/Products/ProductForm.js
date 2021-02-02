@@ -5,7 +5,7 @@ class ProductForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            productName: '',
+            productName : '',
         };
       }
 
@@ -38,7 +38,7 @@ class ProductForm extends React.Component {
       }
     
       handleChange = (event) => {
-        this.setState({productName: event.target.value});
+        this.setState({productName : event.target.value});
       }
 
     render() {

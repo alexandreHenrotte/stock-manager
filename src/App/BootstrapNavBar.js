@@ -1,17 +1,19 @@
 
 import React from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, Form, Button } from 'react-bootstrap';
 
 class BootstrapNavBar extends React.Component {
   render() {
     return (
       <div>
       <Navbar bg="light" expand="lg" style={{ width: '100%' }}>
-				<Navbar.Brand href="#home">Stock-Manager</Navbar.Brand>
+				<Navbar.Brand href="/">Stock-Manager</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="mr-auto">
-						<Nav.Link href="#home">List</Nav.Link>
+						<Nav.Link href="/stocks">Stocks</Nav.Link>
+						<Nav.Link href="/settings">Settings</Nav.Link>
+						{/*
 						<Nav.Link href="#link">Link</Nav.Link>
 						<NavDropdown title="Dropdown" id="basic-nav-dropdown">
 							<NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -20,10 +22,11 @@ class BootstrapNavBar extends React.Component {
 							<NavDropdown.Divider />
 							<NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
 						</NavDropdown>
+						*/}
 					</Nav>
 					<Form inline>
-						<FormControl type="text" placeholder="Search" className="mr-sm-2" />
-						<Button variant="outline-success">Search</Button>
+						<Button variant="outline-success mr-2" onClick={() => window.location.href='/login'}>Login</Button>
+						<Button variant="outline-warning" onClick={() => window.location.href='/register'}>Register</Button>
 					</Form>
 				</Navbar.Collapse>
 			</Navbar>

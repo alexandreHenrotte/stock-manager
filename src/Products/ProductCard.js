@@ -1,5 +1,5 @@
-import styles from "./ProductCard.module.css"
 import React from 'react';
+import styles from "./ProductCard.module.css"
 
 class ProductCard extends React.Component {
     constructor(props) {

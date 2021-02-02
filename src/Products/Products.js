@@ -1,10 +1,10 @@
-import styles from "./ProductWrapper.module.css";
+import styles from "./Products.module.css";
 import ProductForm from './ProductForm';
 import SaveChangesButton from './SaveChangesButton';
 import ProductCard from './ProductCard';
 import React from 'react';
 
-class ProductWrapper extends React.Component {
+class Products extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -90,6 +90,7 @@ class ProductWrapper extends React.Component {
             this.state.productsToDelete.forEach(productToDelete => {
                 fetch(`http://192.168.0.21:9000/products/${productToDelete}`, { method: 'DELETE' })
             })
+            this.setState({productsToDelete : []});
         }
     }
 
@@ -128,7 +129,7 @@ class ProductWrapper extends React.Component {
         return <div>Chargement…</div>;
         } else {
         return (
-                <div className={styles.product_wrapper}>
+                <div className={styles.wrapper}>
                     <ProductForm addProduct={this.addProduct} />
                     <SaveChangesButton saveChanges={this.saveChanges}></SaveChangesButton>
                     {
@@ -144,4 +145,4 @@ class ProductWrapper extends React.Component {
 
 
 
-export default ProductWrapper;
+export default Products;
