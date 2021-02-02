@@ -20,15 +20,6 @@ class Login extends React.Component {
         this.setState({password : event.target.value});
     }
 
-    readCookie = () => {
-        //TODO
-    }
-
-    handleSubmit = () => {
-        //Set login true if correct
-        Cookies.set("user", "loginTrue")
-    }
-
     render() {
         return (
             <div className="wrapper">
