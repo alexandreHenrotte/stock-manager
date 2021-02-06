@@ -1,5 +1,4 @@
 import React from 'react';
-import Cookies from 'js-cookie';
 import styles from './Login.module.css';
 
 class Login extends React.Component {
@@ -7,34 +6,64 @@ class Login extends React.Component {
         super(props);
 
         this.state = {
-
-            username : "",
+            email : "",
             password : ""
         }
     }
 
-    setUserName = (event) => {
-        this.setState({username : event.target.value});
+    onLoginSuccess = () => {
+        console.log("Succeed !")
+    }
+    onLoginFailure = (errorMessage) => {
+        console.log(errorMessage);
+    }
+
+    setEmail= (event) => {
+        this.setState({email : event.target.value});
     }
     setPassword = (event) => {
         this.setState({password : event.target.value});
+    }
+
+    handleSubmit = (event) => {
+        const data = new FormData(event.target);
+
+        fetch(`http://192.168.0.21:9000/login/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Origin' : '*'
+            },
+            body: JSON.stringify({ email : data.get('email'), password : data.get('password')})
+        })
+        .then(res => res.json())
+        .then(resJson => {
+            console.log(resJson);
+            resJson.success ? this.onLoginSuccess() : this.onLoginFailure(resJson.errorMessage);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
+        event.preventDefault();
     }
 
     render() {
         return (
             <div className="wrapper">
                 <h1>Login Page</h1>
-                <form onSubmit={this.handleSubmit} className={styles.login_form}>
+                <form className={styles.login_form} onSubmit={this.handleSubmit}>
                     <label>
-                        <p>Username</p>
-                        <input type="text" onChange={this.setUserName}></input>
+                        <p>Email</p>
+                        <input type="text" name="email" onChange={this.setEmail}></input>
                     </label>
                     <label>
                         <p>Password</p>
-                        <input type="password" onChange={this.setPassword}></input>
+                        <input type="password" name="password" onChange={this.setPassword}></input>
                     </label>
                     <div>
-                        <button type="submit">Submit</button>
+                        <input type="submit" value="Login"></input>
                     </div>
                 </form>
                 <button onClick={() => window.location.href='/register'}>Register</button>
