@@ -11,8 +11,9 @@ class Login extends React.Component {
     };
   }
 
-  onLoginSuccess = () => {
+  onLoginSuccess = (token) => {
     console.log("Succeed !");
+    localStorage.setItem("token", token);
   };
   onLoginFailure = (errorMessage) => {
     console.log(errorMessage);
@@ -44,7 +45,7 @@ class Login extends React.Component {
       .then((resJson) => {
         console.log(resJson);
         resJson.success
-          ? this.onLoginSuccess()
+          ? this.onLoginSuccess(resJson.token)
           : this.onLoginFailure(resJson.errorMessage);
       })
       .catch((error) => {
