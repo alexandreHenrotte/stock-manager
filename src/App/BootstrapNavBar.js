@@ -32,7 +32,7 @@ class BootstrapNavBar extends React.Component {
 							: (
 								<Form inline>
 									<Button variant="outline-success mr-2" onClick={() => window.location.href = '/login'}>Login</Button>
-									<Button variant="outline-warning" onClick={() => window.location.href = '/register'}>Register</Button>)
+									<Button variant="outline-warning" onClick={() => window.location.href = '/register'}>Register</Button>
 								</Form>
 							)
 						}
