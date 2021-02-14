@@ -1,3 +1,4 @@
+require("dotenv").config();
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
@@ -17,7 +18,7 @@ var app = express();
 
 // MongoDB setup
 
-mongoose.connect("mongodb://localhost/stock-manager", {
+mongoose.connect(`mongodb+srv://Alexandre:${process.env.MONGODB_SECRET}@cluster0.h4zyz.mongodb.net/stock-manager?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
