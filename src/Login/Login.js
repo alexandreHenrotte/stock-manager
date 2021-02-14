@@ -14,6 +14,7 @@ class Login extends React.Component {
   onLoginSuccess = (token) => {
     console.log("Succeed !");
     localStorage.setItem("token", token);
+    window.location.href = '/stocks'
   };
   onLoginFailure = (errorMessage) => {
     console.log(errorMessage);
