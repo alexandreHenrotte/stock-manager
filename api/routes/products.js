@@ -13,7 +13,6 @@ router.get('/', async function (req, res) {
 
 router.post('/', async function (req, res, next) {
   req.product = new Product()
-  console.log(req.body)
   next()
 }, saveProductAndGiveFeedback())
 
