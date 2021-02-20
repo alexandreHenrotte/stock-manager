@@ -28,3 +28,5 @@ yarn-error.log*
 
 # env
 /api/.env
+api/package-lock.json
+api/package.json
